@@ -24,7 +24,7 @@ DROP TABLE IF exists pro_produkte;
 CREATE TABLE pro_produkte (
 -- business attributes to see what this table is about
 pro_name Varchar(50) not null,
-pro_preis double,
+pro_preis decimal(12,2),
 -- technical attributes
 pro_id INTEGER UNIQUE NOT null,
 pro_kat_id integer UNIQUE NOT null,
