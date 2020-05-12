@@ -43,7 +43,7 @@ kun_email varchar(35) UNIQUE NOT null,
 -- technical attributes
 kun_id integer UNIQUE NOT null,
 -- relations and primary key
-primary key (kun_id)
+primary key (kun_email)
 );
 
 DROP TABLE IF exists his_historie;
