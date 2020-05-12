@@ -39,7 +39,7 @@ DROP TABLE IF exists kun_kundenstamm;
 create table kun_kundenstamm (
 -- business attributes to see what this table is about
 kun_name varchar(20),
-kun_email varchar(35) UNIQUE NOT null,
+kun_email varchar(100) UNIQUE NOT null,
 -- technical attributes
 kun_id integer UNIQUE NOT null,
 -- relations and primary key
