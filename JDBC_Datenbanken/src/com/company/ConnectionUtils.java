@@ -6,11 +6,10 @@ import java.sql.SQLException;
 
 public class ConnectionUtils {
 
-    public static Connection createNewConnection() throws SQLException {
-        String url = "jdbc:mariadb://localhost:3306/versandwarenhausdb";
+    public static Connection createNewConnection() throws SQLException, ClassNotFoundException {
+        String url = "jdbc:mysql://localhost:3306/versandwarenhausdb";
         String user = "root";
         String password = "";
-
         return DriverManager.getConnection(url, user, password);
     }
 }

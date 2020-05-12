@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a6d2f69-e1dd-4f7f-834d-cb2752ae344b" name="Default Changelist" comment="" />
+    <list default="true" id="8a6d2f69-e1dd-4f7f-834d-cb2752ae344b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mariadb_java_client_2_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mariadb-java-client-2.6.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JDBC_Datenbanken.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JDBC_Datenbanken.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mariadb-java-client-2.6.0-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JDBC_Datenbanken/com/company/ConnectionUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JDBC_Datenbanken/com/company/ConnectionUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JDBC_Datenbanken/com/company/DatabaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JDBC_Datenbanken/com/company/DatabaseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JDBC_Datenbanken/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JDBC_Datenbanken/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/ConnectionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ConnectionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/DatabaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +54,13 @@
         <item name="versandwarenhausdb: schema" type="ebfa3cd1:MariaImplModel$Schema" />
         <item name="his_historie: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="versandwarenhausdb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="versandwarenhausdb: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="pro_produkte: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -51,16 +71,26 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1boSeOjGpUxleGdeqGeSJ4DOcJz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mariadb" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mariadb-java-client-2.6.0.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -90,6 +120,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589297047972</updated>
       <workItem from="1589297056322" duration="1532000" />
+      <workItem from="1589299870428" duration="6463000" />
     </task>
     <servers />
   </component>
@@ -97,37 +128,65 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589297109227">
+    <state x="514" y="259" key="#Project_Structure" timestamp="1589305684715">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="552" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589297109227" />
+    <state x="514" y="259" key="#Project_Structure/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589305684715" />
+    <state x="552" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589304060189">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="552" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589304060189" />
     <state x="765" y="244" key="#com.intellij.ide.util.MemberChooser" timestamp="1589298454129">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="765" y="244" key="#com.intellij.ide.util.MemberChooser/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589298454129" />
-    <state width="1876" height="142" key="GridCell.Tab.0.bottom" timestamp="1589298591731">
+    <state x="740" y="314" key="FileChooserDialogImpl" timestamp="1589305676368">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1876" height="142" key="GridCell.Tab.0.bottom/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589298591731" />
-    <state width="1876" height="142" key="GridCell.Tab.0.center" timestamp="1589298591731">
+    <state x="740" y="314" key="FileChooserDialogImpl/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589305676368" />
+    <state width="1876" height="645" key="GridCell.Tab.0.bottom" timestamp="1589306479740">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1876" height="142" key="GridCell.Tab.0.center/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589298591731" />
-    <state width="1876" height="142" key="GridCell.Tab.0.left" timestamp="1589298591730">
+    <state width="1876" height="645" key="GridCell.Tab.0.bottom/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589306479740" />
+    <state width="1876" height="645" key="GridCell.Tab.0.center" timestamp="1589306479740">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1876" height="142" key="GridCell.Tab.0.left/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589298591730" />
-    <state width="1876" height="142" key="GridCell.Tab.0.right" timestamp="1589298591731">
+    <state width="1876" height="645" key="GridCell.Tab.0.center/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589306479740" />
+    <state width="1876" height="645" key="GridCell.Tab.0.left" timestamp="1589306479740">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1876" height="142" key="GridCell.Tab.0.right/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589298591731" />
+    <state width="1876" height="645" key="GridCell.Tab.0.left/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589306479740" />
+    <state width="1876" height="645" key="GridCell.Tab.0.right" timestamp="1589306479740">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="645" key="GridCell.Tab.0.right/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589306479740" />
+    <state width="1876" height="348" key="GridCell.Tab.1.bottom" timestamp="1589303710811">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.1.bottom/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589303710811" />
+    <state width="1876" height="348" key="GridCell.Tab.1.center" timestamp="1589303710810">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.1.center/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589303710810" />
+    <state width="1876" height="348" key="GridCell.Tab.1.left" timestamp="1589303710810">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.1.left/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589303710810" />
+    <state width="1876" height="348" key="GridCell.Tab.1.right" timestamp="1589303710811">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.1.right/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589303710811" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1589297120185">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589297120185" />
-    <state x="656" y="384" key="com.intellij.ide.util.TipDialog" timestamp="1589297057366">
+    <state x="440" y="134" key="SettingsEditor" timestamp="1589305414359">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="656" y="384" key="com.intellij.ide.util.TipDialog/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589297057366" />
+    <state x="440" y="134" key="SettingsEditor/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589305414359" />
+    <state x="656" y="384" key="com.intellij.ide.util.TipDialog" timestamp="1589299880318">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="656" y="384" key="com.intellij.ide.util.TipDialog/-1080.-470.1080.1880/0.40.1920.1040@0.40.1920.1040" timestamp="1589299880318" />
   </component>
 </project>
