@@ -27,7 +27,7 @@ pro_name Varchar(50) not null,
 pro_preis decimal(12,2),
 -- technical attributes
 pro_id INTEGER UNIQUE NOT NULL AUTO_INCREMENT,
-pro_kat_id integer UNIQUE NOT NULL,
+pro_kat_id integer NOT NULL,
 -- relations and primary key
 primary key (pro_id),
 foreign key (pro_kat_id) references kat_kategorien (kat_id)
