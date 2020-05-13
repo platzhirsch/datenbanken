@@ -40,13 +40,20 @@ public class Testdaten {
         }
 
     }
-    public static void createKundenstamm(Integer anzahKunden){
-        //TODO Kunden generieren
-        // - Array Vname
-        // - Array Nname
-        // - Array Domain
-        // Kunden generieren
-
+    
+    public static void createKundenstamm(Integer anzahKunden) throws SQLException, ClassNotFoundException {
+        DatabaseService service = new DatabaseService();
+        Random random = new Random();
+        String Vname[] = {"David", "Elvis", "Ciaran", "Melvin", "Aaron", "Rahim", "Paki", "Matthew", "Rudyard", "Lance", "Ralph", "Raymond", "Aidan", "Lee", "Alan", "Randall", "Ciaram", "Quinn", "Lysandra", "Natalie", "Leilani", "Alana", "Karleigh", "Felix", "Jan-Patrick", "Philipp", "Simon",  "Britanni", "Camilla", "Charissa", "Yen", "Constance", "Vielka", "Kyla", "Simone", "Cherokee", "Gwendolyn", "Katelyn", "Brenna", "Ivory", "Clementine", "Willow", "Rina", "Adara", "Vivien", "Rowan", "Astra", "Lael", "Xantha", "Moana", "Azalia", "Camilla", "Priscilla", "Maisie", "Cora", "Lavinia", "Blair", "Ruby", "Virginia", };
+        String[] Nname = {"Bowman", "Patterson", "Landry", "Rojas", "Watson", "Burton", "Jhonston", "Barron", "Watts", "Estrada", "Patterson", "Blanchard", "Perez", "Pena", "Henderson", "Frazier", "Donovan", "Rogers", "Eberett", "Logan", "Rivas", "Montoya", "Rose", "Howe", "Wilson", "Dunn", "Good", "Mcclain", "Tailey", "Compton", "Allen", "Evans", "Whitaker", "Schwartz", "Munoz", "Ford", "Strecker", "Flassak", "Straub", "Bäurle", "Franco", "Hendrix", "Macias", "Hancock", "Guy", "Larson", "Sherman", "Newton", "Carter", "Joyner", "Mills", "Baxter", "Lynn", "Lee", "Randall", "Foreman", "Fields", "Mccarthy", "Johnson", "Gallegos", "Christensen"};
+        String[] domain = {"gmail", "outlook", "dhbw-stuttgart", "web", "online", "gmx", "info", "private", "localhost", "lost"};
+        for (int i=0; i<= anzahKunden; i++){
+            String vorname = Vname[random.nextInt(Vname.length)];
+            String nachname = Nname[random.nextInt(Nname.length)];
+            String name = vorname + " " + nachname;
+            String mail = vorname + "." + nachname + "@" + domain[random.nextInt(domain.length)] + ".de";
+            service.insertKundenstamm(name, mail);
+        }
     }
 
     public static void createKat() {
