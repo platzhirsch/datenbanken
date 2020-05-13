@@ -41,10 +41,10 @@ create table kun_kundenstamm (
 kun_name varchar(20),
 kun_email varchar(100) UNIQUE NOT null,
 -- technical attributes
-kun_id integer UNIQUE NOT null,
+kun_id integer UNIQUE NOT null AUTO_INCREMENT,
 -- relations and primary key
 primary key (kun_email)
-);
+) AUTO_INCREMENT = 1000000;
 
 DROP TABLE IF exists his_historie;
 
