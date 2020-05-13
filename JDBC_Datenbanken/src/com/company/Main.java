@@ -12,6 +12,7 @@ public class Main {
         DatabaseService service = new DatabaseService();
         //service.insertProdukt("",10.0,1);
         //service.insertKategorie("");
-        Testdaten.createProdukte(200);
+        //Testdaten.TestdatenGenerieren();
+        Testdaten.createProdukte(100000000);
     }
 }

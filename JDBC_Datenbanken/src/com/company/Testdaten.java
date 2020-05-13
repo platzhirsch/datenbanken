@@ -6,6 +6,15 @@ import java.util.Random;
 public class Testdaten {
 
 
+    public static void TestdatenGenerieren(Integer anzahlKunden, Integer anzahlDaten, Integer prozentGekauft, Integer prozentGesehen) throws SQLException, ClassNotFoundException {
+       int anzahlGekauft = (anzahlDaten * (prozentGekauft/100));
+       int anzahlGesehen = (anzahlDaten * (prozentGesehen/100));
+        createKat();
+        createProdukte(anzahlDaten);
+        createKundenstamm(anzahlKunden);
+        createHistorie(anzahlDaten, anzahlGesehen, anzahlGekauft);
+    }
+
     public static void createProdukte(Integer anzahlProdukte) throws SQLException, ClassNotFoundException {
         DatabaseService service = new DatabaseService();
         Random random = new Random();
@@ -19,17 +28,36 @@ public class Testdaten {
                 "5XL kurz","25/31","5XL lang","100/118",
                 "6XL kurz","6/32","6XL lang","104/12"};
         String[] gender = {"", "Herren", "Damen", "Unisex", "Buben", "Mädchen", "Frauen", };
-        String[] farbe = {"", "Blau", "Schwarz", "Grün","Gelb"};
+        String[] farbe = {"", "Blau", "Schwarz", "Grün","Gelb", "Orange", "Khaki", "Sandfarben", "Bordeaux"};
         String[] produkte = {"Hose", "Schuhe", "Bluse", "Kette", "Pulli", "Basecap", "Socken", "Unterhemd", "Rucksack", "Unterwäsche", "Corthose"};
         String[] adjektiv = {"Superfancy","Megalit","Übelstgeil", "Brigitte", "Felix","Simon","JP", "Phill"};
         for (int i=0; i <= anzahlProdukte; i++){
             double preis = 1;
             String name = gender[random.nextInt(gender.length)] + " " + produkte[random.nextInt(produkte.length)] + " " + farbe[random.nextInt(farbe.length)] + " " + size[random.nextInt(size.length)] + " " + adjektiv[random.nextInt(adjektiv.length)];
             service.insertProdukt(name, preis,1);
+
+            //TODO Kategorie zurodnen
         }
 
     }
-    public void createKundenstamm(Integer anzahKunden, Integer anzahlGekauft, Integer anzahlGesehen){
+    public static void createKundenstamm(Integer anzahKunden){
+        //TODO Kunden generieren
+        // - Array Vname
+        // - Array Nname
+        // - Array Domain
+        // Kunden generieren
 
+    }
+
+    public static void createKat() {
+        //TODO Kategorien anlegen
+    }
+
+    public static void createHistorie(Integer anzahlProdukte, Integer anzahlAngesehen, Integer anzahlgesehen){
+        //TODO Prüfen wieviele Kunden
+        // - Prüfen wieviele Produkte
+        // - Prüfen wieviel angesehen
+        // - Prüfen wieviele gekauft
+        // - Random Kundenhistorie erstellen
     }
 }
