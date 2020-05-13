@@ -38,7 +38,7 @@ DROP TABLE IF exists kun_kundenstamm;
 -- erklären warum Tabellen notwendig
 create table kun_kundenstamm (
 -- business attributes to see what this table is about
-kun_name varchar(20),
+kun_name varchar(50),
 kun_email varchar(100) UNIQUE NOT null,
 -- technical attributes
 kun_id integer UNIQUE NOT null AUTO_INCREMENT,
