@@ -14,5 +14,8 @@ public class Main {
         //service.insertKategorie("");
         //Testdaten.TestdatenGenerieren();
         Testdaten.createProdukte(100);
+        Testdaten.createKat();
+        //Testdaten.createProdukte
+
     }
 }

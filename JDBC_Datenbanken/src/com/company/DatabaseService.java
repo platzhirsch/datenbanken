@@ -23,7 +23,9 @@ public class DatabaseService {
             statement.executeUpdate(sql);
             System.out.println("Kategorie: " + name + " erstellt");
         }
-
+        resultSet.close();
+        statement.close();
+        connection.close();
         return null;
     }
 
@@ -42,6 +44,29 @@ public class DatabaseService {
                     + "VALUES (\"" + name + "\", \"" + preis + "\", \"" + kat_id + "\")";
             statement.executeUpdate(sql);
             System.out.println("Produkt: " + name + " erstellt");
+
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
+        return null;
+    }
+    
+    public String insertKundenstamm(String name, String mail) throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectionUtils.createNewConnection();
+        // existiert bereits?
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from kun_kundenstamm where kun_name=\"" + name + "\" ");
+
+        if (resultSet.next()) {
+            //existiert
+            System.out.println("Kunde: " + resultSet.getString("kun_name") + " existiert bereits");
+        } else {
+            //erstellen
+            String sql = "Insert INTO kun_kundenstamm (kun_name, kun_email)"
+                    + "VALUES (\"" + name + "\", \"" + mail + "\")";
+            statement.executeUpdate(sql);
+            System.out.println("Kunde: " + name + " erstellt");
 
         }
         resultSet.close();

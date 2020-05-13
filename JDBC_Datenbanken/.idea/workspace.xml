@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a6d2f69-e1dd-4f7f-834d-cb2752ae344b" name="Default Changelist" comment="TestdatenProdukte erstellt">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JDBC_Datenbanken/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JDBC_Datenbanken/com/company/Main.class" afterDir="false" />
+    <list default="true" id="8a6d2f69-e1dd-4f7f-834d-cb2752ae344b" name="Default Changelist" comment="Testdaten.java Testdaten generieren nach Produktkategorie implemenitert">
+      <change beforePath="$PROJECT_DIR$/src/com/company/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/DatabaseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Testdaten.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Testdaten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SQLSkript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../SQLSkript.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +117,7 @@
       <updated>1589297047972</updated>
       <workItem from="1589297056322" duration="1532000" />
       <workItem from="1589299870428" duration="13156000" />
-      <workItem from="1589366642760" duration="12666000" />
+      <workItem from="1589366642760" duration="13010000" />
     </task>
     <task id="LOCAL-00001" summary="insertKategorie() added - working">
       <created>1589307721182</created>
@@ -134,7 +134,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="insertKategorie() added - working" />
-    <option name="LAST_COMMIT_MESSAGE" value="insertKategorie() added - working" />
+    <MESSAGE value="Testdaten.java Testdaten generieren nach Produktkategorie implemenitert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testdaten.java Testdaten generieren nach Produktkategorie implemenitert" />
   </component>
   <component name="WindowStateProjectService">
     <state x="514" y="259" key="#Project_Structure" timestamp="1589305684715">
