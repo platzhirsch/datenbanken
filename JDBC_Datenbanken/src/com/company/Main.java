@@ -13,6 +13,6 @@ public class Main {
         //service.insertProdukt("",10.0,1);
         //service.insertKategorie("");
         //Testdaten.TestdatenGenerieren();
-        Testdaten.createProdukte(100000000);
+        Testdaten.createProdukte(100);
     }
 }
