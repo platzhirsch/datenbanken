@@ -23,7 +23,9 @@ public class DatabaseService {
             statement.executeUpdate(sql);
             System.out.println("Kategorie: " + name + " erstellt");
         }
-
+        resultSet.close();
+        statement.close();
+        connection.close();
         return null;
     }
 

@@ -56,8 +56,16 @@ public class Testdaten {
         }
     }
 
-    public static void createKat() {
+    public static void createKat() throws SQLException, ClassNotFoundException{
         //TODO Kategorien anlegen
+        DatabaseService serv = new DatabaseService();
+        String proKat[] = {"Werkzeuge","Gaming","Motorrad","Fahrräder","Helme","Laufschuhe","Tiernahrung","Körperpflege","Getränke","Homöopathie","Tierprodukte","Frauenklamotten"};
+        for (int i=0; i<= proKat.length; i++){
+
+            String proKatName = proKat[i];
+            serv.insertKategorie(proKatName);
+        }
+       
     }
 
     public static void createHistorie(Integer anzahlProdukte, Integer anzahlAngesehen, Integer anzahlgesehen){
