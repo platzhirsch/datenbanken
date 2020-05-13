@@ -12,7 +12,7 @@ public class Testdaten {
         createKat();
         createProdukte(anzahlDaten);
         createKundenstamm(anzahlKunden);
-        createHistorie(anzahlDaten, anzahlGesehen, anzahlGekauft);
+        createHistorie(anzahlGesehen, anzahlGekauft);
     }
 
     public static void createProdukte(Integer anzahlProdukte) throws SQLException, ClassNotFoundException {
@@ -34,7 +34,7 @@ public class Testdaten {
         for (int i=0; i <= anzahlProdukte; i++){
             double preis = 1;
             String name = gender[random.nextInt(gender.length)] + " " + produkte[random.nextInt(produkte.length)] + " " + farbe[random.nextInt(farbe.length)] + " " + size[random.nextInt(size.length)] + " " + adjektiv[random.nextInt(adjektiv.length)];
-            service.insertProdukt(name, preis,1);
+            service.insertProdukt(name, preis,1000000);
 
             //TODO Kategorie zurodnen
         }
@@ -60,7 +60,7 @@ public class Testdaten {
         //TODO Kategorien anlegen
         DatabaseService serv = new DatabaseService();
         String proKat[] = {"Werkzeuge","Gaming","Motorrad","Fahrräder","Helme","Laufschuhe","Tiernahrung","Körperpflege","Getränke","Homöopathie","Tierprodukte","Frauenklamotten"};
-        for (int i=0; i<= proKat.length; i++){
+        for (int i=0; i< proKat.length; i++){
 
             String proKatName = proKat[i];
             serv.insertKategorie(proKatName);
@@ -68,11 +68,47 @@ public class Testdaten {
        
     }
 
-    public static void createHistorie(Integer anzahlProdukte, Integer anzahlAngesehen, Integer anzahlgesehen){
-        //TODO Prüfen wieviele Kunden
-        // - Prüfen wieviele Produkte
-        // - Prüfen wieviel angesehen
-        // - Prüfen wieviele gekauft
-        // - Random Kundenhistorie erstellen
+    public static void createHistorie(Integer anzahlAngesehen, Integer anzahlGekauft) throws SQLException, ClassNotFoundException{
+        try {
+            DatabaseService service = new DatabaseService();
+            //Prüfen ob Kunden exisitieren
+            if (service.existsKunden()) {
+                //Prüfen ob Produkte exitieren
+                if (service.existsProdukte()) {
+
+                    int anzProdukte = service.getAnzahl("pro_produkte");
+                    int anzKunden = service.getAnzahl("kun_kundenstamm");
+
+                    for (int i = 0; i <= anzahlAngesehen; i++) {
+                        //Random Zahl mit max Anzahlkunden
+                        int idKunde = (int) (Math.random() * anzKunden) + 1000000;
+                        //Random Zahl mit max Anzahl Produkte
+                        int idProdukt = (int) (Math.random() * anzProdukte) + 1000000;
+
+                        //Historie-Element erzeugen
+                        service.insertHistorie("Angesehen", idProdukt, idKunde);
+                    }
+
+                    for (int i = 0; i <= anzahlGekauft; i++) {
+                        //Random Zahl mit max Anzahlkunden
+                        int idKunde = (int) (Math.random() * anzKunden) + 1000000;
+                        //Random Zahl mit max Anzahl Produkte
+                        int idProdukt = (int) (Math.random() * anzProdukte) + 1000000;
+
+                        //Historie-Element erzeugen
+                        service.insertHistorie("Gekauft", idProdukt, idKunde);
+                    }
+
+                } else {
+                    //Throw new Exception
+                    throw new RuntimeException("Historie kann nicht erstellt werden. Keine Produkte vorhanden.");
+                }
+            } else {
+                //Throw new Exception
+                throw new RuntimeException("Historie kann nicht erstellt werden. Keine Kunden vorhanden.");
+            }
+        } catch(RuntimeException e){
+            System.out.println(e);
+        }
     }
 }

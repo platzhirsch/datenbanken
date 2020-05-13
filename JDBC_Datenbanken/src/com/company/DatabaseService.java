@@ -74,5 +74,74 @@ public class DatabaseService {
         connection.close();
         return null;
     }
+
+    public boolean existsKunden() throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectionUtils.createNewConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from kun_kundenstamm");
+        boolean result;
+
+        if (resultSet.next()) {
+            //existiert
+            result = true;
+        } else {
+            result = false;
+        }
+
+        resultSet.close();
+        statement.close();
+        connection.close();
+        return result;
+    }
+
+    public boolean existsProdukte() throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectionUtils.createNewConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from pro_produkte");
+        boolean result;
+
+        if (resultSet.next()) {
+            //existiert
+            result = true;
+        } else {
+            result = false;
+        }
+
+        resultSet.close();
+        statement.close();
+        connection.close();
+        return result;
+    }
+
+    public Integer getAnzahl(String tablename) throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectionUtils.createNewConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) as total FROM "+ tablename);
+        int result;
+
+        if (resultSet.next()) {
+            result = resultSet.getInt("total");
+        } else {
+            result = 0;
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
+        return result;
+    }
+
+    public void insertHistorie(String status, Integer pro_id, Integer kun_id) throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectionUtils.createNewConnection();
+        Statement statement = connection.createStatement();
+            //erstellen
+        String sql = "Insert INTO his_historie(his_status, his_pro_id, his_kun_id)"
+                + "VALUES (\"" + status + "\", \"" + pro_id + "\", \"" + kun_id + "\")";
+        statement.executeUpdate(sql);
+        System.out.println("Neues Element in Historie erstellt");
+
+        statement.close();
+        connection.close();
+    }
+
 }
 
