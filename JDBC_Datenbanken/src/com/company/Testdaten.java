@@ -6,13 +6,14 @@ import java.util.Random;
 public class Testdaten {
 
 
-    public static void TestdatenGenerieren(Integer anzahlKunden, Integer anzahlDaten, Integer prozentGekauft, Integer prozentGesehen) throws SQLException, ClassNotFoundException {
-       int anzahlGekauft = (anzahlDaten * (prozentGekauft/100));
-       int anzahlGesehen = (anzahlDaten * (prozentGesehen/100));
-        createKat();
-        createProdukte(anzahlDaten);
-        createKundenstamm(anzahlKunden);
-        createHistorie(anzahlGesehen, anzahlGekauft);
+    public static void testdatenGenerieren(Integer anzahlKunden, Integer anzahlDaten, Integer anzahlHistorie, Double prozentGekauft) throws SQLException, ClassNotFoundException {
+       int anzahlGekauft = (int) (anzahlHistorie * prozentGekauft);
+       int anzahlGesehen = anzahlHistorie-anzahlGekauft;
+	
+       createKat();
+	   createProdukte(anzahlDaten);
+	   createKundenstamm(anzahlKunden);
+	   createHistorie(anzahlGesehen, anzahlGekauft);
     }
 
     public static void createProdukte(Integer anzahlProdukte) throws SQLException, ClassNotFoundException {
