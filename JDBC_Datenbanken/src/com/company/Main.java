@@ -14,9 +14,9 @@ public class Main {
         //service.insertKategorie("");
         //Testdaten.TestdatenGenerieren();
         Testdaten.createKat();
-        Testdaten.createProdukte(20);
+        Testdaten.createProdukte(200);
 
-        Testdaten.createKundenstamm(10);
-        Testdaten.createHistorie(10,10);
+        Testdaten.createKundenstamm(1000);
+        Testdaten.createHistorie(10000,1000);
     }
 }
