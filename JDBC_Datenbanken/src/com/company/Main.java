@@ -18,6 +18,8 @@ public class Main {
 
         Testdaten.createKundenstamm(1000);
         Testdaten.createHistorie(10000,1000);*/
-        Testdaten.testdatenGenerieren(10, 10, 100, 0.39);
+    	// Diese Funktion erzeugt unsere Testdaten
+    	//Übergabeparameter sind: zahlKunden, anzahlDaten,  anzahlHistorie,  prozentGekauft
+        Testdaten.testdatenGenerieren(100000, 100000, 100000, 0.21);
     }
 }
