@@ -1,3 +1,18 @@
+-- Wieviele Produkte gibt es in Kategorie X?
+SELECT * FROM pro_produkte WHERE pro_kat_id = ?
+
+-- Wie oft sieht sich Kunde X ein Produkt an, wie oft kauft er?
+SELECT his_status table his_historie WHERE his_status = ? AND his_kun_id = ? 
+
+-- Für welche Produkte X interessiert sich Kunde Y?
+SELECT his_pro_id table his_historie WHERE his_kun_id = ? 
+
+-- Wie groß ist unser Kundenstamm?
+SELECT * FROM kun_kundenstamm
+
+-- Wieviele Produkte wurden am Tag X gekauft? 
+SELECT * FROM his_historie WHERE his_status = Gekauft
+
 
 -- Welche Produktkategorien hat Kunde mit Email X angesehen?
 select kat_name, pro_name, kun_email
