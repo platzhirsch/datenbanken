@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DatabaseService {
 
@@ -146,10 +147,8 @@ public class DatabaseService {
 
     public Integer getAnzahl(String tablename) throws SQLException, ClassNotFoundException {
         Connection connection = ConnectionUtils.createNewConnection();
-        String sql = "SELECT COUNT(*) as total FROM ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, tablename);
-        ResultSet resultSet = statement.executeQuery();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) as total FROM "+ tablename);
         int result;
 
         if (resultSet.next()) {
@@ -162,6 +161,7 @@ public class DatabaseService {
         connection.close();
         return result;
     }
+    
 
     public void insertHistorie(String status, Integer pro_id, Integer kun_id) throws SQLException, ClassNotFoundException {
         Connection connection = ConnectionUtils.createNewConnection();
@@ -172,9 +172,9 @@ public class DatabaseService {
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, status);
         statement.setInt(2, pro_id);
-        statement.setInt(2, kun_id);
+        statement.setInt(3, kun_id);
         ResultSet resultSet = statement.executeQuery();
-        System.out.println("Neues" + status + "es in Historie erstellt");
+        System.out.println("Neues " + status + "es Produkt in Historie erstellt");
         
         resultSet.close();
         statement.close();

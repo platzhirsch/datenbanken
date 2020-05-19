@@ -155,7 +155,7 @@ public class Testdaten {
             if (service.existsKunden()) {
                 //Prüfen ob Produkte exitieren
                 if (service.existsProdukte()) {
-
+                	
                     int anzProdukte = service.getAnzahl("pro_produkte");
                     int anzKunden = service.getAnzahl("kun_kundenstamm");
 
@@ -166,6 +166,7 @@ public class Testdaten {
                         int idProdukt = (int) (Math.random() * anzProdukte) + 1000000;
 
                         //Historie-Element erzeugen
+                        System.out.println(idKunde + " " + idProdukt);
                         service.insertHistorie("Angesehen", idProdukt, idKunde);
                     }
 
@@ -176,6 +177,7 @@ public class Testdaten {
                         int idProdukt = (int) (Math.random() * anzProdukte) + 1000000;
 
                         //Historie-Element erzeugen
+                        System.out.println(idKunde + " " + idProdukt);
                         service.insertHistorie("Gekauft", idProdukt, idKunde);
                     }
 
