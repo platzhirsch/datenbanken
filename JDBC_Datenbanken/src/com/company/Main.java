@@ -20,7 +20,7 @@ public class Main {
         Testdaten.createHistorie(10000,1000);*/
     	// Diese Funktion erzeugt unsere Testdaten
     	//Übergabeparameter sind: zahlKunden, anzahlDaten,  anzahlHistorie,  prozentGekauft
-        Testdaten.testdatenGenerieren(10, 1000, 100000, 0.21);
+        Testdaten.testdatenGenerieren(10, 1000, 100, 0.91);
         
         //Important: Um zu gewährleisten, dass Historie immer erstellt werden kann sollte DB vor jeder erneuten Testedatengenerierung gedroppt werden
     }

@@ -9,7 +9,8 @@ public class Testdaten {
     public static void testdatenGenerieren(Integer anzahlKunden, Integer anzahlDaten, Integer anzahlHistorie, Double prozentGekauft) throws SQLException, ClassNotFoundException {
        int anzahlGekauft = (int) (anzahlHistorie * prozentGekauft);
        int anzahlGesehen = anzahlHistorie-anzahlGekauft;
-	
+       System.out.println(anzahlGekauft);
+       System.out.println(anzahlGesehen);
        createKat();
 	   createProdukte(anzahlDaten);
 	   createKundenstamm(anzahlKunden);
@@ -159,7 +160,7 @@ public class Testdaten {
                     int anzProdukte = service.getAnzahl("pro_produkte");
                     int anzKunden = service.getAnzahl("kun_kundenstamm");
 
-                    for (int i = 0; i <= anzahlAngesehen; i++) {
+                    for (int i = 0; i < anzahlAngesehen; i++) {
                         //Random Zahl mit max Anzahlkunden
                         int idKunde = (int) (Math.random() * anzKunden) + 1000000;
                         //Random Zahl mit max Anzahl Produkte
@@ -170,7 +171,7 @@ public class Testdaten {
                         service.insertHistorie("Angesehen", idProdukt, idKunde);
                     }
 
-                    for (int i = 0; i <= anzahlGekauft; i++) {
+                    for (int i = 0; i < anzahlGekauft; i++) {
                         //Random Zahl mit max Anzahlkunden
                         int idKunde = (int) (Math.random() * anzKunden) + 1000000;
                         //Random Zahl mit max Anzahl Produkte
