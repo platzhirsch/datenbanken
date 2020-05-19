@@ -9,8 +9,7 @@ public class Testdaten {
     public static void testdatenGenerieren(Integer anzahlKunden, Integer anzahlDaten, Integer anzahlHistorie, Double prozentGekauft) throws SQLException, ClassNotFoundException {
        int anzahlGekauft = (int) (anzahlHistorie * prozentGekauft);
        int anzahlGesehen = anzahlHistorie-anzahlGekauft;
-       System.out.println(anzahlGekauft);
-       System.out.println(anzahlGesehen);
+
        createKat();
 	   createProdukte(anzahlDaten);
 	   createKundenstamm(anzahlKunden);
@@ -167,7 +166,7 @@ public class Testdaten {
                         int idProdukt = (int) (Math.random() * anzProdukte) + 1000000;
 
                         //Historie-Element erzeugen
-                        System.out.println(idKunde + " " + idProdukt);
+                        System.out.println("Kunde: " + idKunde + ", Produkt: " + idProdukt);
                         service.insertHistorie("Angesehen", idProdukt, idKunde);
                     }
 
@@ -178,7 +177,7 @@ public class Testdaten {
                         int idProdukt = (int) (Math.random() * anzProdukte) + 1000000;
 
                         //Historie-Element erzeugen
-                        System.out.println(idKunde + " " + idProdukt);
+                        System.out.println("Kunde: " + idKunde + ", Produkt: " + idProdukt);
                         service.insertHistorie("Gekauft", idProdukt, idKunde);
                     }
 

@@ -162,23 +162,53 @@ public class DatabaseService {
         return result;
     }
     
+    private ArrayList<String> statusList = new ArrayList<String>();
+    private ArrayList<Integer> pro_idList = new ArrayList<Integer>();
+    private ArrayList<Integer> kun_idList = new ArrayList<Integer>();
+    private Integer statusQuery = 100;
 
     public void insertHistorie(String status, Integer pro_id, Integer kun_id) throws SQLException, ClassNotFoundException {
-        Connection connection = ConnectionUtils.createNewConnection();
-        //erstellen
-       
-        String sql = "Insert INTO his_historie (his_status, his_pro_id, his_kun_id)"
-        	       + "VALUES (?, ?, ?)"; 
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, status);
-        statement.setInt(2, pro_id);
-        statement.setInt(3, kun_id);
-        ResultSet resultSet = statement.executeQuery();
-        System.out.println("Neues " + status + "es Produkt in Historie erstellt");
+    	statusList.add(status);
+    	pro_idList.add(pro_id);
+    	kun_idList.add(kun_id);
         
-        resultSet.close();
-        statement.close();
-        connection.close();
+
+        if (statusList.size() == statusQuery) {
+            String sqlinsertignore = "INSERT IGNORE INTO his_historie (his_status, his_pro_id, his_kun_id) VALUES ";
+
+            for (int i = 0; i < statusQuery - 1; i++) {
+            	
+                sqlinsertignore = sqlinsertignore + "(? , ? , ?), ";
+            }
+            Connection connection = ConnectionUtils.createNewConnection();
+            sqlinsertignore = sqlinsertignore + " (? , ? , ?); ";
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlinsertignore);
+            Integer a = 4;
+            for (int i = 0; i < statusQuery; i++) {
+                if (i == 0) {
+                    preparedStatement.setString(1, statusList.get(i));
+                    preparedStatement.setDouble(2, pro_idList.get(i));
+                    preparedStatement.setInt(3, kun_idList.get(i));
+                } else {
+                    preparedStatement.setString(0 + a, statusList.get(i));
+                    preparedStatement.setDouble(1 + a, pro_idList.get(i));
+                    preparedStatement.setInt(2 + a, kun_idList.get(i));
+                    a = a + 3;
+                }
+            }
+            System.out.println("Die Historie wurde erweitert");
+            statusList.clear();
+            pro_idList.clear();
+            kun_idList.clear();
+            System.out.println(preparedStatement);
+            preparedStatement.executeQuery();
+            preparedStatement.close();
+            connection.close();
+        }
+    	
+    	
+    	
+    	
     }
 
 }
