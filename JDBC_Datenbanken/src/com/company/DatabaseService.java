@@ -35,35 +35,45 @@ public class DatabaseService {
         return null;
     }
 
+    private ArrayList<String> nameList = new ArrayList<String>();
+    private ArrayList<Double> preisList = new ArrayList<Double>();
+    private ArrayList<Integer> kat_idList = new ArrayList<Integer>();
+
     public String insertProdukt(String name, Double preis, Integer kat_id) throws SQLException, ClassNotFoundException {
-        Connection connection = ConnectionUtils.createNewConnection();
-        // existiert bereits?
-        String sql = "select * from pro_produkte" +  " where pro_name= ?  AND pro_preis= ? AND pro_kat_id= ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, name);
-        statement.setDouble(2, preis);
-        statement.setInt(3, kat_id);
-        ResultSet resultSet = statement.executeQuery();
+        nameList.add(name);
+        preisList.add(preis);
+        kat_idList.add(kat_id);
+        Integer produkteQuery = 100;
+        if (nameList.size() == produkteQuery) {
+            String sqlinsertignore = "INSERT IGNORE INTO pro_produkte (pro_name, pro_preis, pro_kat_id) VALUES ";
 
-        if (resultSet.next()) {
-            //existiert
-            System.out.println("Produkt: " + resultSet.getString("pro_name") + " existiert bereits");
-        } else {
-            //erstellen
-             //sql = "Insert INTO pro_produkte (pro_name, pro_preis, pro_kat_id)" + "VALUES ( + ? + , \"" + preis + "\", \"" + kat_id + "\")";
-        	sql = "Insert INTO pro_produkte (pro_name, pro_preis, pro_kat_id)"
-                    + " VALUES ( ?  ,  ?  , ? )";
-        	statement = connection.prepareStatement(sql);
-        	statement.setString(1, name);
-        	statement.setDouble(2, preis);
-        	statement.setInt(3, kat_id);
-            statement.executeUpdate();
-            System.out.println("Produkt: " + name + " erstellt");
-
+            for (int i = 0; i < produkteQuery - 1; i++) {
+                sqlinsertignore = sqlinsertignore + "(? , ? , ?), ";
+            }
+            Connection connection = ConnectionUtils.createNewConnection();
+            sqlinsertignore = sqlinsertignore + " (? , ? , ?); ";
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlinsertignore);
+            Integer a = 4;
+            for (int i = 0; i < produkteQuery; i++) {
+                if (i == 0) {
+                    preparedStatement.setString(1, nameList.get(i));
+                    preparedStatement.setDouble(2, preisList.get(i));
+                    preparedStatement.setInt(3, kat_idList.get(i));
+                } else {
+                    preparedStatement.setString(0 + a, nameList.get(i));
+                    preparedStatement.setDouble(1 + a, preisList.get(i));
+                    preparedStatement.setInt(2 + a, kat_idList.get(i));
+                    a = a + 3;
+                }
+            }
+            nameList.clear();
+            preisList.clear();
+            kat_idList.clear();
+            System.out.println(preparedStatement);
+            preparedStatement.executeQuery();
+            preparedStatement.close();
+            connection.close();
         }
-        resultSet.close();
-        statement.close();
-        connection.close();
         return null;
     }
     
