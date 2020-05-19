@@ -9,7 +9,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DatabaseService {
-
+	
+    private ArrayList<String> nameList = new ArrayList<String>();
+    private ArrayList<Double> preisList = new ArrayList<Double>();
+    private ArrayList<Integer> kat_idList = new ArrayList<Integer>();
+    private Integer produkteQuery = 100;
+    
+    private ArrayList<String> statusList = new ArrayList<String>();
+    private ArrayList<Integer> pro_idList = new ArrayList<Integer>();
+    private ArrayList<Integer> kun_idList = new ArrayList<Integer>();
+    private Integer statusQuery = 100;
 
 
     public String insertKategorie(String name) throws SQLException, ClassNotFoundException{
@@ -36,15 +45,11 @@ public class DatabaseService {
         return null;
     }
 
-    private ArrayList<String> nameList = new ArrayList<String>();
-    private ArrayList<Double> preisList = new ArrayList<Double>();
-    private ArrayList<Integer> kat_idList = new ArrayList<Integer>();
 
     public String insertProdukt(String name, Double preis, Integer kat_id) throws SQLException, ClassNotFoundException {
         nameList.add(name);
         preisList.add(preis);
         kat_idList.add(kat_id);
-        Integer produkteQuery = 100;
         if (nameList.size() == produkteQuery) {
             String sqlinsertignore = "INSERT IGNORE INTO pro_produkte (pro_name, pro_preis, pro_kat_id) VALUES ";
 
@@ -162,11 +167,6 @@ public class DatabaseService {
         return result;
     }
     
-    private ArrayList<String> statusList = new ArrayList<String>();
-    private ArrayList<Integer> pro_idList = new ArrayList<Integer>();
-    private ArrayList<Integer> kun_idList = new ArrayList<Integer>();
-    private Integer statusQuery = 100;
-
     public void insertHistorie(String status, Integer pro_id, Integer kun_id) throws SQLException, ClassNotFoundException {
     	statusList.add(status);
     	pro_idList.add(pro_id);

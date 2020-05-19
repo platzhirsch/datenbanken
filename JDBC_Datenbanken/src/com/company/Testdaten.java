@@ -10,6 +10,8 @@ public class Testdaten {
        int anzahlGekauft = (int) (anzahlHistorie * prozentGekauft);
        int anzahlGesehen = anzahlHistorie-anzahlGekauft;
 
+       System.out.println(anzahlGekauft);
+       System.out.println(anzahlGesehen);
        createKat();
 	   createProdukte(anzahlDaten);
 	   createKundenstamm(anzahlKunden);
