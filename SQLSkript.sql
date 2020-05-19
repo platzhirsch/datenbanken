@@ -23,7 +23,7 @@ DROP TABLE IF exists pro_produkte;
 -- mapping von n-to-? 
 CREATE TABLE pro_produkte (
 -- business attributes to see what this table is about
-pro_name Varchar(128) not null,
+pro_name Varchar(128) not null unique,
 pro_preis decimal(12,2),
 -- technical attributes
 pro_id INTEGER UNIQUE NOT NULL AUTO_INCREMENT,
