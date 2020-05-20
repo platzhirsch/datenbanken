@@ -229,7 +229,7 @@ public class DatabaseService {
         connection.close();
         float timeMs = elapsedTime/1000000;
         System.out.println("###############################################");
-        System.out.println("Das Query hat " + elapsedTime + "ns gedauert ausführen");
+        System.out.println("Die Query:\n" + sql + "\n" + "hat " + elapsedTime + "ns für die Ausführung benötigt.");
         System.out.println("Das sind " + timeMs + "ms");
         System.out.println("###############################################");
     }
