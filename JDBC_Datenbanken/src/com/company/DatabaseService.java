@@ -15,6 +15,10 @@ public class DatabaseService {
     private ArrayList<Integer> kat_idList = new ArrayList<Integer>();
     private Integer produkteQuery = 100;
     
+    private ArrayList<String> nameKundeList = new ArrayList<String>();
+    private ArrayList<String> mailList = new ArrayList<String>();
+    private Integer nameKundeQuery = 100;
+    
     private ArrayList<String> statusList = new ArrayList<String>();
     private ArrayList<Integer> pro_idList = new ArrayList<Integer>();
     private ArrayList<Integer> kun_idList = new ArrayList<Integer>();
@@ -46,7 +50,7 @@ public class DatabaseService {
     }
 
 
-    public String insertProdukt(String name, Double preis, Integer kat_id) throws SQLException, ClassNotFoundException {
+    public void insertProdukt(String name, Double preis, Integer kat_id) throws SQLException, ClassNotFoundException {
         nameList.add(name);
         preisList.add(preis);
         kat_idList.add(kat_id);
@@ -80,34 +84,40 @@ public class DatabaseService {
             preparedStatement.close();
             connection.close();
         }
-        return null;
     }
     
-    public String insertKundenstamm(String name, String mail) throws SQLException, ClassNotFoundException {
-        Connection connection = ConnectionUtils.createNewConnection();
-        String sql = "select * from kun_kundenstamm" + " where kun_name= ? ";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, name);
-        ResultSet resultSet = statement.executeQuery();
+    
+    public void insertKundenstamm(String nameKunde, String mail) throws SQLException, ClassNotFoundException {
+    	nameKundeList.add(nameKunde);
+    	mailList.add(mail);
+        if (nameKundeList.size() == nameKundeQuery) {
+            String sqlinsertignore = "INSERT IGNORE INTO kun_kundenstamm (kun_name, kun_email) VALUES ";
 
-        if (resultSet.next()) {
-            //existiert
-            System.out.println("Kunde: " + resultSet.getString("kun_name") + " existiert bereits");
-        } else {
-            //erstellen
-            sql = "Insert INTO kun_kundenstamm (kun_name, kun_email)"
-                    + " VALUES (? , ?)";
-            statement = connection.prepareStatement(sql);
-            statement.setString(1, name);
-            statement.setString(2, mail);
-            statement.executeUpdate();
-            System.out.println("Kunde: " + name + " erstellt");
-
+            for (int i = 0; i < nameKundeQuery - 1; i++) {
+                sqlinsertignore = sqlinsertignore + "(? , ?), ";
+            }
+            Connection connection = ConnectionUtils.createNewConnection();
+            sqlinsertignore = sqlinsertignore + " (? , ?); ";
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlinsertignore);
+            Integer a = 3;
+            for (int i = 0; i < nameKundeQuery; i++) {
+                if (i == 0) {
+                    preparedStatement.setString(1, nameKundeList.get(i));
+                    preparedStatement.setString(2, mailList.get(i));
+                } else {
+                    preparedStatement.setString(0 + a, nameKundeList.get(i));
+                    preparedStatement.setString(1 + a, mailList.get(i));
+                    a = a + 2;
+                }
+            }
+            System.out.println("Der Kundenstamm wurde erweitert");
+            nameKundeList.clear();
+            mailList.clear();
+            System.out.println(preparedStatement);
+            preparedStatement.executeQuery();
+            preparedStatement.close();
+            connection.close();
         }
-        resultSet.close();
-        statement.close();
-        connection.close();
-        return null;
     }
 
     public boolean existsKunden() throws SQLException, ClassNotFoundException {
