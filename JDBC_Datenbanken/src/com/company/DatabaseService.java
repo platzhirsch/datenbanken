@@ -215,10 +215,23 @@ public class DatabaseService {
             preparedStatement.close();
             connection.close();
         }
-    	
-    	
-    	
-    	
+    }
+    
+    public static void queryTime(String sql) throws SQLException, ClassNotFoundException {
+    	Connection connection = ConnectionUtils.createNewConnection();
+        Statement statement = connection.createStatement();
+        long startTime = System.nanoTime();
+        ResultSet resultSet = statement.executeQuery(sql);
+        resultSet.close();
+        long stopTime = System.nanoTime();
+        float elapsedTime = stopTime - startTime;
+        statement.close();
+        connection.close();
+        float timeMs = elapsedTime/1000000;
+        System.out.println("###############################################");
+        System.out.println("Das Query hat " + elapsedTime + "ns gedauert ausführen");
+        System.out.println("Das sind " + timeMs + "ms");
+        System.out.println("###############################################");
     }
 
 }
