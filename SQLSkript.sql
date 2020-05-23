@@ -12,7 +12,7 @@ CREATE TABLE kat_kategorien(
 -- attributes to see what this table is about
 kat_name Varchar(50) NOT null, -- check(kat_name >= 2),
 -- technical attributes
-kat_id INTEGER UNIQUE NOT null AUTO_INCREMENT, -- Produktspezifischer Key der Produktkategorien
+kat_id INTEGER NOT null AUTO_INCREMENT, -- Produktspezifischer Key der Produktkategorien
 -- relations and primary key
 primary key (kat_id)
 ) AUTO_INCREMENT = 1000000;
@@ -20,13 +20,12 @@ primary key (kat_id)
 DROP TABLE IF exists pro_produkte;
 
 -- Produkte die das Warenhaus führt
--- mapping von n-to-? 
 CREATE TABLE pro_produkte (
 -- business attributes to see what this table is about
 pro_name Varchar(128) not null unique,
 pro_preis decimal(12,2),
 -- technical attributes
-pro_id INTEGER UNIQUE NOT NULL AUTO_INCREMENT,
+pro_id INTEGER NOT NULL AUTO_INCREMENT,
 pro_kat_id integer NOT NULL,
 -- relations and primary key
 primary key (pro_id),
@@ -39,7 +38,7 @@ DROP TABLE IF exists kun_kundenstamm;
 create table kun_kundenstamm (
 -- business attributes to see what this table is about
 kun_name varchar(50),
-kun_email varchar(100) UNIQUE NOT null,
+kun_email varchar(100) NOT null,
 -- technical attributes
 kun_id integer UNIQUE NOT null AUTO_INCREMENT,
 -- relations and primary key
@@ -53,7 +52,7 @@ create table his_historie(
 -- business attributes to see what this table is about
 his_status varchar(10) not null,
 -- technical attributes
-his_id integer UNIQUE NOT null auto_increment,
+his_id integer NOT null auto_increment,
 his_zeitstempel TIMESTAMP not null,
 his_pro_id integer,
 his_kun_id integer,
