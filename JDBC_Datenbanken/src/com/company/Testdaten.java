@@ -127,14 +127,63 @@ public class Testdaten {
     public static void createKundenstamm(Integer anzahKunden) throws SQLException, ClassNotFoundException {
         DatabaseService service = new DatabaseService();
         Random random = new Random();
-        String Vname[] = {"David", "Elvis", "Ciaran", "Melvin", "Aaron", "Rahim", "Paki", "Matthew", "Rudyard", "Lance", "Ralph", "Raymond", "Aidan", "Lee", "Alan", "Han","Hannes","Randall", "Ciaram", "Quinn", "Lysandra", "Natalie", "Leilani", "Alana", "Karleigh", "Felix", "Jan-Patrick", "Philipp", "Simon",  "Britanni", "Camilla", "Charissa", "Yen", "Constance", "Vielka", "Kyla", "Simone", "Cherokee", "Gwendolyn", "Katelyn", "Brenna", "Ivory", "Clementine", "Willow", "Rina", "Adara", "Vivien", "Rowan", "Astra", "Lael", "Xantha", "Moana", "Azalia", "Camilla", "Priscilla", "Maisie", "Cora", "Lavinia", "Blair", "Ruby", "Virginia", "Hans", "Huber", "Simon", "Max", "Leonder", "Tim", "Steffi", "Carole", "Rhonda", "Ray", "Boba","Leia", "Bryce", "Francesca", "Luke", "Alfi", "Enfy", "Haley","Chloe","Oolav", ""};
+        String Vname[] = {"David", "lvis", "Ciaran", "Melvin", "Aaron", "Rahim", "Paki", "Matthew", "Rudyard", "Lance", "Ralph", "Raymond", "Aidan", "Lee", "Alan", "Han","Hannes","Randall", "Ciaram", "Quinn", "Lysandra", "Natalie", "Leilani", "Alana", "Karleigh", "Felix", "Jan-Patrick", "Philipp", "Simon",  "Britanni", "Camilla", "Charissa", "Yen", "Constance", "Vielka", "Kyla", "Simone", "Cherokee", "Gwendolyn", "Katelyn", "Brenna", "Ivory", "Clementine", "Willow", "Rina", "Adara", "Vivien", "Rowan", "Astra", "Lael", "Xantha", "Moana", "Azalia", "Camilla", "Priscilla", "Maisie", "Cora", "Lavinia", "Blair", "Ruby", "Virginia", "Hans", "Huber", "Simon", "Max", "Leonder", "Tim", "Steffi", "Carole", "Rhonda", "Ray", "Boba","Leia", "Bryce", "Francesca", "Luke", "Alfi", "Enfy", "Haley","Chloe","Oolav", "Winfried", "Samuel", "Günther", "Alf", "Alan", "Michael", "Dieter", "Frank", "Anselm", "Urs", "Benedikt", "Tobias", "Nico", "Laura", "Lisa", "Isabell", "Anakin", "Obi-Wan", "Mace", "Osiris", "Ludwig", "Anna", "Lea", "Miriam", "Caroline", "Celina", "Luisa", "Luis", "Sebastian", "Marc", "Ahsoka", "Boba", "Padme", "Ivana", "Samira", "Muriel", "Angelika", "Sabrina", "Maxine", "Lina", "Denise", "Celine", "Pia", "Pedro", "Aaron", "Aurelian","Cosmo","Wanda","Gideon","Damian","Janne","Joel","Jonas","Josuha","Jeldrik","Kian","Silvian","Bodo","Fridolin","Gandalf"};
         String[] Nname = {"Bowman", "Patterson", "Landry", "Rojas", "Watson", "Burton", "Jhonston", "Barron", "Watts", "Estrada", "Patterson", "Blanchard", "Perez", "Pena", "Henderson", "Frazier", "Donovan", "Rogers", "Eberett", "Logan", "Rivas", "Montoya", "Rose", "Howe", "Wilson", "Dunn", "Good", "Mcclain", "Tailey", "Compton", "Allen", "Evans", "Whitaker", "Schwartz", "Munoz", "Ford", "Strecker", "Flassak", "Straub", "BÃ¤urle", "Franco", "Hendrix", "Macias", "Hancock", "Guy", "Larson", "Sherman", "Newton", "Carter", "Joyner", "Mills", "Baxter", "Lynn", "Lee", "Randall", "Foreman", "Fields", "Mccarthy", "Johnson", "Gallegos", "Christensen", "Baskin", "Straub", "Baeuler", "Rosenhuber","Rebo", "Salacious", "Skywalker"};
-        String[] domain = {"gmail", "outlook", "dhbw-stuttgart", "web", "online", "gmx", "info", "private", "localhost", "lost", "other", "freemail", "enzingerplastics", "", "ameisenmail","mailto", "vader", "bild", "nasenbaermail", "droptable", "dropmail", "briefpost", "dhl"};
+        String[] domain = {
+        		 /* Default domains included */
+        		  "aol.com", "att.net", "comcast.net", "facebook.com", "gmail.com", "gmx.com", "googlemail.com",
+        		  "google.com", "hotmail.com", "hotmail.co.uk", "mac.com", "me.com", "mail.com", "msn.com",
+        		  "live.com", "sbcglobal.net", "verizon.net", "yahoo.com", "yahoo.co.uk",
+
+        		  /* Other global domains */
+        		  "email.com", "fastmail.fm", "games.com" /* AOL */, "gmx.net", "hush.com", "hushmail.com", "icloud.com",
+        		  "iname.com", "inbox.com", "lavabit.com", "love.com" /* AOL */, "outlook.com", "pobox.com", "protonmail.ch", "protonmail.com", "tutanota.de", "tutanota.com", "tutamail.com", "tuta.io",
+        		 "keemail.me", "rocketmail.com" /* Yahoo */, "safe-mail.net", "wow.com" /* AOL */, "ygm.com" /* AOL */,
+        		  "ymail.com" /* Yahoo */, "zoho.com", "yandex.com",
+
+        		  /* United States ISP domains */
+        		  "bellsouth.net", "charter.net", "cox.net", "earthlink.net", "juno.com",
+
+        		  /* British ISP domains */
+        		  "btinternet.com", "virginmedia.com", "blueyonder.co.uk", "freeserve.co.uk", "live.co.uk",
+        		  "ntlworld.com", "o2.co.uk", "orange.net", "sky.com", "talktalk.co.uk", "tiscali.co.uk",
+        		  "virgin.net", "wanadoo.co.uk", "bt.com",
+
+        		  /* Domains used in Asia */
+        		  "sina.com", "sina.cn", "qq.com", "naver.com", "hanmail.net", "daum.net", "nate.com", "yahoo.co.jp", "yahoo.co.kr", "yahoo.co.id", "yahoo.co.in", "yahoo.com.sg", "yahoo.com.ph", "163.com", "yeah.net", "126.com", "21cn.com", "aliyun.com", "foxmail.com",
+
+        		  /* French ISP domains */
+        		  "hotmail.fr", "live.fr", "laposte.net", "yahoo.fr", "wanadoo.fr", "orange.fr", "gmx.fr", "sfr.fr", "neuf.fr", "free.fr",
+
+        		  /* German ISP domains */
+        		  "gmx.de", "hotmail.de", "live.de", "online.de", "t-online.de" /* T-Mobile */, "web.de", "yahoo.de",
+
+        		  /* Italian ISP domains */
+        		  "libero.it", "virgilio.it", "hotmail.it", "aol.it", "tiscali.it", "alice.it", "live.it", "yahoo.it", "email.it", "tin.it", "poste.it", "teletu.it",
+
+        		  /* Russian ISP domains */
+        		  "mail.ru", "rambler.ru", "yandex.ru", "ya.ru", "list.ru",
+
+        		  /* Belgian ISP domains */
+        		  "hotmail.be", "live.be", "skynet.be", "voo.be", "tvcablenet.be", "telenet.be",
+
+        		  /* Argentinian ISP domains */
+        		  "hotmail.com.ar", "live.com.ar", "yahoo.com.ar", "fibertel.com.ar", "speedy.com.ar", "arnet.com.ar",
+
+        		  /* Domains used in Mexico */
+        		  "yahoo.com.mx", "live.com.mx", "hotmail.es", "hotmail.com.mx", "prodigy.net.mx",
+
+        		  /* Domains used in Canada */
+        		  "yahoo.ca", "hotmail.ca", "bell.net", "shaw.ca", "sympatico.ca", "rogers.com",
+
+        		  /* Domains used in Brazil */
+        		  "yahoo.com.br", "hotmail.com.br", "outlook.com.br", "uol.com.br", "bol.com.br", "terra.com.br", "ig.com.br", "itelefonica.com.br", "r7.com", "zipmail.com.br", "globo.com", "globomail.com", "oi.com.br"
+        };
         for (int i=0; i<= anzahKunden; i++){
             String vorname = Vname[random.nextInt(Vname.length)];
             String nachname = Nname[random.nextInt(Nname.length)];
             String name = vorname + " " + nachname;
-            String mail = vorname + "." + nachname + "@" + domain[random.nextInt(domain.length)] + ".de";
+            String mail = vorname + "." + nachname + "@" + domain[random.nextInt(domain.length)];
             service.insertKundenstamm(name, mail);
         }
     }

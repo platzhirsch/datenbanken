@@ -1,9 +1,9 @@
 
 package com.company;
 
-import java.sql.Connection;
+
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 public class Main {
 
@@ -20,16 +20,46 @@ public class Main {
         Testdaten.createHistorie(10000,1000);*/
     	// Diese Funktion erzeugt unsere Testdaten
     	//Übergabeparameter sind: zahlKunden, anzahlDaten,  anzahlHistorie,  prozentGekauft
-        //Testdaten.testdatenGenerieren(10000, 10000, 10000, 0.3);
     	
+    	/*
+    	long startTime = System.nanoTime();
 
+        Testdaten.testdatenGenerieren(10000, 10000, 10000, 0.3);
+        long stopTime = System.nanoTime();
+        float elapsedTime = stopTime - startTime;
+        float timeMs = elapsedTime/1000000;
+        System.out.println(timeMs);
+        */
+    	
+    	
+    	DatabaseService.queryTime("call ansehenKaufenKundeMitEmailX();");
+    	DatabaseService.queryTime("call preisProdukteKundeXDurchschnitt();");
+    	DatabaseService.queryTime("call produktkategorienKundeX();");
+    	DatabaseService.queryTime("call produktXInteresseKundeY();");
+    	DatabaseService.queryTime("call groesseKundenstamm();");
+    	DatabaseService.queryTime("call anzahlProdukteVerkauftTagX();");
+    	DatabaseService.queryTime("call anzahlAngesehenProduktX();");
+    	DatabaseService.queryTime("call besteKategorie();");
+    	DatabaseService.queryTime("call angesehenZuGekauftBeiKategorieX();");
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	/*
+    	
+    	
     	//Wie ist die Ansehen/Kaufen Ratio bei Kunde mit Email X?
     	System.out.println("Wie ist die Ansehen/Kaufen Ratio bei Kunde mit Email X?");
     	DatabaseService.queryTime("select count(his_status), his_status from his_historie hh join kun_kundenstamm on hh.his_kun_id = kun_id where kun_email =\"Moana.Blanchard@droptable.de\" group by his_status ");
     	
     	//Wie teuer sind Produkte die ein Kunde kauft/ansieht durchschnittlich?
     	System.out.println("Wie teuer sind Produkte die ein Kunde kauft/ansieht durchschnittlich?");
-    	DatabaseService.queryTime("select avg(pro_preis), kun_name from his_historie hh join pro_produkte on hh.his_pro_id = pro_id join kun_kundenstamm on hh.his_kun_id = kun_id where kun_name = \"Alana Joyner\"");
+    	DatabaseService.queryTime("select avg(pro_preis), kun_name from his_historie hh join pro_produkte on hh.his_pro_id = pro_id join kun_kundenstamm on hh.his_kun_id = kun_id where kun_email =\"Moana.Blanchard@droptable.de\"");
     	
     	//Welche Produktkategorien hat Kunde mit Email X angesehen?
     	System.out.println("Welche Produktkategorien hat Kunde mit Email X angesehen?");
@@ -37,7 +67,7 @@ public class Main {
     	
     	//Für welche Produkte X interessiert sich Kunde Y?
     	System.out.println("Für welche Produkte X interessiert sich Kunde Y?");
-    	DatabaseService.queryTime("select pro_name, kun_name from his_historie hh join pro_produkte on hh.his_pro_id = pro_id join kun_kundenstamm on hh.his_kun_id = kun_id where kun_name = \"Azalia Larson\" and his_status = \"Angesehen\" group by pro_name");
+    	DatabaseService.queryTime("select pro_name, kun_name from his_historie hh join pro_produkte on hh.his_pro_id = pro_id join kun_kundenstamm on hh.his_kun_id = kun_id where kun_email =\"Moana.Blanchard@droptable.de\" and his_status = \"Angesehen\" group by pro_name");
     	
     	//Wie groß ist unser Kundenstamm?
     	System.out.println("Wie groß ist unser Kundenstamm?");
@@ -58,7 +88,7 @@ public class Main {
     	//Wie ist das Angesehen/Verkauft Verhältnis bei Kategorie X?
     	System.out.println("Wie ist das Angesehen/Verkauft Verhältnis bei Kategorie X?");
     	DatabaseService.queryTime("select kat_name, count(his_status), his_status from his_historie hh join pro_produkte on hh.his_pro_id = pro_id join kat_kategorien on pro_produkte.pro_kat_id = kat_id where kat_name =\"Gaming\" group by his_status");
-    	
+    	*/
         //Important: Um zu gewährleisten, dass Historie immer erstellt werden kann sollte DB vor jeder erneuten Testedatengenerierung gedroppt werden
     }
 }
